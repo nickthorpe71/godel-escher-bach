@@ -1,1 +1,1 @@
-# Godel, Escher, Bach
+# Gödel, Escher, Bach
