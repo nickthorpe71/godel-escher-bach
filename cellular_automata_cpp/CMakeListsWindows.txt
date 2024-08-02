@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 3.10)
+
+# Set the project name and version
+project(GameOfLife VERSION 1.0)
+
+# Specify the C++ standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# Add the executable
+add_executable(GameOfLife src/main.cpp)
+
+# Find SFML package
+if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    # Adjust SFML_DIR to the path where you installed SFML for Windows
+    set(SFML_DIR "C:/SFML/lib/cmake/SFML")
+else()
+    set(SFML_DIR "/usr/local/lib/cmake/SFML")
+endif()
+find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
+
+# Link SFML libraries
+target_link_libraries(GameOfLife sfml-graphics sfml-window sfml-system)
